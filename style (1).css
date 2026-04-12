@@ -1,0 +1,56 @@
+/* Custom Global Styles that Tailwind might not easily handle right away */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: #d35400; /* brandAccent */
+    color: #fff;
+}
+
+/* Base custom classes to be animated */
+.hero-text-split {
+    will-change: transform;
+}
+
+/* Hide scrollbar for gallery but allow scroll if needed 
+   Though we'll do horizontal scrolling with GSAP ScrollTrigger */
+.gallery-wrapper {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.gallery-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* CSS Keyframe animations for marquees as fallback or smooth baseline */
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollImages {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+    animation: scrollText 20s linear infinite;
+    display: inline-block;
+    min-width: 200%;
+}
+
+.image-marquee-content {
+    animation: scrollImages 30s linear infinite;
+    width: max-content;
+}
+
+.testimonial-bg {
+    transform: scale(1.1);
+    will-change: transform;
+}
